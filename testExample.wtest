@@ -1,9 +1,18 @@
-import example.pepita
-
-describe "group of tests for pepita" {
-
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
+import colonia.*
+import roles.*
+import example.*
+describe "name" {
+  const h1 = new Hadas(astucia = 20,poderMagico=15,rolActual=guardian) 
+  const d1 = new Hadas(astucia = 25,poderMagico=5,rolActual=domador) 
+  test "description" {
+    assert.equals(250, h1.poderOfensivo())
   }
-
+  test "12" {
+    h1.cambiarARol()
+    assert.equals(domador, h1.rolActual())
+  }
+  test "test domador" {
+    h1.cambiarARol()
+    assert.equals(1, domador.cantDeMascotas())
+  }
 }
