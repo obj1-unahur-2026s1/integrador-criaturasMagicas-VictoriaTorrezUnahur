@@ -1,21 +1,21 @@
-class Criaturas {
-  var property astucia  
+class Criatura {
+  const astucia  
   var property poderMagico 
   var property rolActual
   method poderOfensivo() = poderMagico * 10 + rolActual.poderExtra()
   method esFromidable() = self.esAstuta() or self.esExtraordinario()
   method esAstuta()
-  method esExtraordinario() = self.rolActual().rolExtraordinario(self)
+  method esExtraordinario() = rolActual.rolExtraordinario(self)
   method cambiarARol() {
      rolActual.realizarRitual(self)
   }  
 
 }
-class Duendes inherits Criaturas {
-  override method poderOfensivo() = super() + super()/10
+class Duende inherits Criatura {
+  override method poderOfensivo() =super()/10
   override method esAstuta() = false
 }
-class Hadas inherits Criaturas {
+class Hada inherits Criatura {
   var kilometrosDeVuelo = 2
   method volar(kilometros) {
     kilometrosDeVuelo = (kilometrosDeVuelo + kilometros).min(25)

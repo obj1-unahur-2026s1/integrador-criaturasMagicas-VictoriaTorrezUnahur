@@ -25,16 +25,17 @@ object domador {
   method poderExtra() = mascotas.count({m=>m.tieneCuernos()}) * 150 
   method rolExtraordinario(deUnaCriatura) = deUnaCriatura.poderMagico() >= 15 and mascotas.all({m=>m.esVeterana()})
   method realizarRitual(criatura) {
-    if(mascotas.any({m=>m.tieneCuernos()})){
+    if(self.tieneAlgunaMascotaConCuernos()){
     criatura.rolActual(hechicero)
     } else {
       self.error("ritual cancelado")
     }
   } 
+  method tieneAlgunaMascotaConCuernos() = mascotas.any({m=>m.tieneCuernos()})
  }
 
 class Mascota {
-  var property edad 
+  const edad 
   var tieneCuernos
   method esVeterana() = edad >= 10 
   method noTieneCuernos() {
